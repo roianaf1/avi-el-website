@@ -27,7 +27,8 @@
         .swiper-caption div {
             @apply bg-black/70 px-10 py-5 rounded-full text-2xl md:text-3xl font-black shadow-2xl;
         }
-        .tab-button { @apply px-8 py-4 text-lg font-bold border-b-4 border-transparent transition-all; }
+        /* הגדלתי את הגופן של כפתורי הטאבים מ-text-lg ל-text-xl */
+        .tab-button { @apply px-8 py-4 text-xl font-bold border-b-4 border-transparent transition-all; }
         .tab-button.active { @apply border-blue-500 text-blue-400; }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.6s; }
@@ -87,10 +88,9 @@
             </a>
             <h3 class="text-3xl md:text-4xl font-black mb-8">חברת י. אבי-אל מתכת מציעה מגוון מוצרים:</h3>
             <ul class="text-xl md:text-2xl leading-relaxed text-slate-300 list-disc list-inside space-y-6 max-w-3xl mx-auto text-right">
-                <li>גגוני אלומיניום</li>
                 <li>משקופים עיוורים – כולל משקופים לארגזי גלילה</li>
-                <li>פרופילי אלומיניום עד 6 מטר</li>
                 <li>חיתוך, ניקוב וכיפוף פחים – עד 5 מ"מ עובי ו-6 מטר אורך</li>
+                <li>גגוני אלומיניום</li>
                 <li>כיפוף מעיכה</li>
             </ul>
         </div>
@@ -185,13 +185,12 @@
             </div>
         </div>
     </section>
-    <!-- Gallery Carousel – עם Lazy Loading אמיתי של Swiper -->
+    <!-- Gallery Carousel -->
     <section class="py-24 bg-slate-900">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-black text-center mb-16">גלריית עבודות</h2>
             <div class="swiper mySwiper h-96 md:h-screen max-h-screen rounded-3xl overflow-hidden shadow-2xl">
                 <div class="swiper-wrapper">
-                    <!-- כל הסליידים עם lazy loading -->
                     <div class="swiper-slide">
                         <img data-src="images/1.jpg" class="swiper-lazy" alt="עבודה 1">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -232,12 +231,98 @@
                         <img data-src="images/10.jpg" class="swiper-lazy" alt="עבודה 10">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                     </div>
-                    <!-- ממשיך עד 33 -->
+                    <div class="swiper-slide">
+                        <img data-src="images/11.jpg" class="swiper-lazy" alt="עבודה 11">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/12.jpg" class="swiper-lazy" alt="עבודה 12">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/13.jpg" class="swiper-lazy" alt="עבודה 13">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/14.jpg" class="swiper-lazy" alt="עבודה 14">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/15.jpg" class="swiper-lazy" alt="עבודה 15">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/16.jpg" class="swiper-lazy" alt="עבודה 16">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/17.jpg" class="swiper-lazy" alt="עבודה 17">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/18.jpg" class="swiper-lazy" alt="עבודה 18">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/19.jpg" class="swiper-lazy" alt="עבודה 19">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/20.jpg" class="swiper-lazy" alt="עבודה 20">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/21.jpg" class="swiper-lazy" alt="עבודה 21">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/22.jpg" class="swiper-lazy" alt="עבודה 22">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/23.jpg" class="swiper-lazy" alt="עבודה 23">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/24.jpg" class="swiper-lazy" alt="עבודה 24">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/25.jpg" class="swiper-lazy" alt="עבודה 25">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/26.jpg" class="swiper-lazy" alt="עבודה 26">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/27.jpg" class="swiper-lazy" alt="עבודה 27">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/28.jpg" class="swiper-lazy" alt="עבודה 28">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/29.jpg" class="swiper-lazy" alt="עבודה 29">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/30.jpg" class="swiper-lazy" alt="עבודה 30">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/31.jpg" class="swiper-lazy" alt="עבודה 31">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/32.jpg" class="swiper-lazy" alt="עבודה 32">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
                     <div class="swiper-slide">
                         <img data-src="images/33.jpg" class="swiper-lazy" alt="עבודה 33">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                     </div>
-                    <!-- סלייד 34 עם כיתוב -->
                     <div class="swiper-slide relative">
                         <img data-src="images/34.jpg" class="swiper-lazy" alt="כיפוף מעיכה">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -245,12 +330,58 @@
                             <div>דוגמה לכיפוף מעיכה מיוחד</div>
                         </div>
                     </div>
-                    <!-- ממשיך עד 48 -->
                     <div class="swiper-slide">
                         <img data-src="images/35.jpg" class="swiper-lazy" alt="עבודה 35">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                     </div>
-                    <!-- ... עד ... -->
+                    <div class="swiper-slide">
+                        <img data-src="images/36.jpg" class="swiper-lazy" alt="עבודה 36">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/37.jpg" class="swiper-lazy" alt="עבודה 37">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/38.jpg" class="swiper-lazy" alt="עבודה 38">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/39.jpg" class="swiper-lazy" alt="עבודה 39">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/40.jpg" class="swiper-lazy" alt="עבודה 40">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/41.jpg" class="swiper-lazy" alt="עבודה 41">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/42.jpg" class="swiper-lazy" alt="עבודה 42">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/43.jpg" class="swiper-lazy" alt="עבודה 43">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/44.jpg" class="swiper-lazy" alt="עבודה 44">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/45.jpg" class="swiper-lazy" alt="עבודה 45">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/46.jpg" class="swiper-lazy" alt="עבודה 46">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img data-src="images/47.jpg" class="swiper-lazy" alt="עבודה 47">
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
                     <div class="swiper-slide">
                         <img data-src="images/48.jpg" class="swiper-lazy" alt="עבודה 48">
                         <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
@@ -262,7 +393,6 @@
             </div>
         </div>
     </section>
-    <!-- שאר הקוד נשאר אותו דבר (פייסבוק, קשר, פוטר) -->
     <!-- Facebook Section -->
     <section class="py-20 bg-slate-800/50">
         <div class="container mx-auto px-6 text-center">
