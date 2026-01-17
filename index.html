@@ -180,24 +180,64 @@
             </div>
         </div>
     </section>
-    <!-- Gallery Carousel -->
+    <!-- Gallery Carousel – 48 תמונות -->
     <section class="py-24 bg-slate-900">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-black text-center mb-16">גלריית עבודות</h2>
             <div class="swiper mySwiper h-96 md:h-screen max-h-screen rounded-3xl overflow-hidden shadow-2xl">
                 <div class="swiper-wrapper">
-                    <!-- 1-48 -->
                     <div class="swiper-slide"><img src="images/1.jpg" alt="עבודה 1"></div>
                     <div class="swiper-slide"><img src="images/2.jpg" alt="עבודה 2"></div>
                     <div class="swiper-slide"><img src="images/3.jpg" alt="עבודה 3"></div>
-                    <!-- ... כל ה-48 כמו במקור ... -->
+                    <div class="swiper-slide"><img src="images/4.jpg" alt="עבודה 4"></div>
+                    <div class="swiper-slide"><img src="images/5.jpg" alt="עבודה 5"></div>
+                    <div class="swiper-slide"><img src="images/6.jpg" alt="עבודה 6"></div>
+                    <div class="swiper-slide"><img src="images/7.jpg" alt="עבודה 7"></div>
+                    <div class="swiper-slide"><img src="images/8.jpg" alt="עבודה 8"></div>
+                    <div class="swiper-slide"><img src="images/9.jpg" alt="עבודה 9"></div>
+                    <div class="swiper-slide"><img src="images/10.jpg" alt="עבודה 10"></div>
+                    <div class="swiper-slide"><img src="images/11.jpg" alt="עבודה 11"></div>
+                    <div class="swiper-slide"><img src="images/12.jpg" alt="עבודה 12"></div>
+                    <div class="swiper-slide"><img src="images/13.jpg" alt="עבודה 13"></div>
+                    <div class="swiper-slide"><img src="images/14.jpg" alt="עבודה 14"></div>
+                    <div class="swiper-slide"><img src="images/15.jpg" alt="עבודה 15"></div>
+                    <div class="swiper-slide"><img src="images/16.jpg" alt="עבודה 16"></div>
+                    <div class="swiper-slide"><img src="images/17.jpg" alt="עבודה 17"></div>
+                    <div class="swiper-slide"><img src="images/18.jpg" alt="עבודה 18"></div>
+                    <div class="swiper-slide"><img src="images/19.jpg" alt="עבודה 19"></div>
+                    <div class="swiper-slide"><img src="images/20.jpg" alt="עבודה 20"></div>
+                    <div class="swiper-slide"><img src="images/21.jpg" alt="עבודה 21"></div>
+                    <div class="swiper-slide"><img src="images/22.jpg" alt="עבודה 22"></div>
+                    <div class="swiper-slide"><img src="images/23.jpg" alt="עבודה 23"></div>
+                    <div class="swiper-slide"><img src="images/24.jpg" alt="עבודה 24"></div>
+                    <div class="swiper-slide"><img src="images/25.jpg" alt="עבודה 25"></div>
+                    <div class="swiper-slide"><img src="images/26.jpg" alt="עבודה 26"></div>
+                    <div class="swiper-slide"><img src="images/27.jpg" alt="עבודה 27"></div>
+                    <div class="swiper-slide"><img src="images/28.jpg" alt="עבודה 28"></div>
+                    <div class="swiper-slide"><img src="images/29.jpg" alt="עבודה 29"></div>
+                    <div class="swiper-slide"><img src="images/30.jpg" alt="עבודה 30"></div>
+                    <div class="swiper-slide"><img src="images/31.jpg" alt="עבודה 31"></div>
+                    <div class="swiper-slide"><img src="images/32.jpg" alt="עבודה 32"></div>
+                    <div class="swiper-slide"><img src="images/33.jpg" alt="עבודה 33"></div>
                     <div class="swiper-slide relative">
                         <img src="images/34.jpg" alt="כיפוף מעיכה">
                         <div class="swiper-caption">
                             <div>דוגמה לכיפוף מעיכה מיוחד</div>
                         </div>
                     </div>
-                    <!-- עד 48.jpg -->
+                    <div class="swiper-slide"><img src="images/35.jpg" alt="עבודה 35"></div>
+                    <div class="swiper-slide"><img src="images/36.jpg" alt="עבודה 36"></div>
+                    <div class="swiper-slide"><img src="images/37.jpg" alt="עבודה 37"></div>
+                    <div class="swiper-slide"><img src="images/38.jpg" alt="עבודה 38"></div>
+                    <div class="swiper-slide"><img src="images/39.jpg" alt="עבודה 39"></div>
+                    <div class="swiper-slide"><img src="images/40.jpg" alt="עבודה 40"></div>
+                    <div class="swiper-slide"><img src="images/41.jpg" alt="עבודה 41"></div>
+                    <div class="swiper-slide"><img src="images/42.jpg" alt="עבודה 42"></div>
+                    <div class="swiper-slide"><img src="images/43.jpg" alt="עבודה 43"></div>
+                    <div class="swiper-slide"><img src="images/44.jpg" alt="עבודה 44"></div>
+                    <div class="swiper-slide"><img src="images/45.jpg" alt="עבודה 45"></div>
+                    <div class="swiper-slide"><img src="images/46.jpg" alt="עבודה 46"></div>
+                    <div class="swiper-slide"><img src="images/47.jpg" alt="עבודה 47"></div>
                     <div class="swiper-slide"><img src="images/48.jpg" alt="עבודה 48"></div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -250,19 +290,36 @@
     </footer>
     <script>
         lucide.createIcons();
+        
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active', 'border-blue-500', 'text-blue-400'));
             document.getElementById(tabId).classList.add('active');
             event.target.classList.add('active', 'border-blue-500', 'text-blue-400');
         }
+        
         const swiper = new Swiper('.mySwiper', {
             loop: true,
-            autoplay: { delay: 4000, disableOnInteraction: false },
-            pagination: { el: '.swiper-pagination', clickable: true },
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            slidesPerView: 1,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
             effect: 'fade',
-            speed: 1000
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 1000,
+            observer: true,
+            observeParents: true
         });
     </script>
 </body>
