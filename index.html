@@ -19,7 +19,12 @@
             min-height: 100vh;
         }
         .swiper { width: 100%; height: 100%; }
-        .swiper-slide img { object-fit: contain; width: 100%; height: 100%; background: #000; }
+        .swiper-slide img { 
+            object-fit: cover; 
+            object-position: center; 
+            width: 100%; 
+            height: 100%; 
+        }
         .swiper-pagination-bullet-active { background: #3b82f6; }
         .swiper-caption {
             @apply absolute inset-0 flex items-end justify-center pb-16 pointer-events-none;
@@ -187,7 +192,7 @@
             </div>
         </div>
     </section>
-    <!-- Gallery Carousel – עכשיו עם 60 תמונות -->
+    <!-- Gallery Carousel -->
     <section class="py-24 bg-slate-900 px-4">
         <div class="container mx-auto">
             <h2 class="text-4xl md:text-5xl font-black text-center mb-16">גלריית עבודות</h2>
@@ -247,7 +252,6 @@
                     <div class="swiper-slide"><img src="images/47.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
                     <div class="swiper-slide"><img src="images/48.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
                     <div class="swiper-slide"><img src="images/49.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-                    <!-- 11 התמונות החדשות -->
                     <div class="swiper-slide"><img src="images/50.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
                     <div class="swiper-slide"><img src="images/51.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
                     <div class="swiper-slide"><img src="images/52.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
