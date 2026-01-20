@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
-        body { font-family: 'Assistant', sans-serif; overflow-x: hidden; } /* מניעת חיתוך אופקי */
+        body { font-family: 'Assistant', sans-serif; overflow-x: hidden; }
         .hero-gradient {
             background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('images/hero.jpg');
             background-size: cover;
@@ -19,7 +19,7 @@
             min-height: 100vh;
         }
         .swiper { width: 100%; height: 100%; }
-        .swiper-slide img { object-fit: contain; width: 100%; height: 100%; background: #000; } /* contain כדי לא לחתוך תמונות */
+        .swiper-slide img { object-fit: contain; width: 100%; height: 100%; background: #000; }
         .swiper-pagination-bullet-active { background: #3b82f6; }
         .swiper-caption {
             @apply absolute inset-0 flex items-end justify-center pb-16 pointer-events-none;
@@ -27,8 +27,16 @@
         .swiper-caption div {
             @apply bg-black/70 px-10 py-5 rounded-full text-2xl md:text-3xl font-black shadow-2xl;
         }
-        .tab-button { @apply px-8 py-4 text-2xl font-bold border-b-4 border-transparent transition-all; }
-        .tab-button.active { @apply border-blue-500 text-blue-400; }
+        /* כפתורי טאבים – גדולים ובולטים במובייל */
+        .tab-buttons-container {
+            @apply flex flex-wrap justify-center gap-6 md:gap-8 mb-12 px-4;
+        }
+        .tab-button { 
+            @apply px-10 py-6 text-2xl md:text-3xl lg:text-4xl font-black rounded-t-3xl transition-all shadow-lg bg-slate-800/50 hover:bg-slate-800/80 border-b-8 border-transparent;
+        }
+        .tab-button.active { 
+            @apply border-blue-500 text-blue-400 bg-slate-900 shadow-2xl transform scale-105;
+        }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.6s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -45,7 +53,7 @@
         </div>
     </nav>
     <!-- Hero -->
-    <header class="hero-gradient py-32 px-4 sm:px-6 text-center flex items-center">
+    <header class="hero-gradient py-32 px-4 text-center flex items-center">
         <div class="container mx-auto max-w-5xl">
             <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight drop-shadow-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white">
                 י. אבי-אל ייצור משקופים עיוורים<br>וחיתוך כיפוף פחים עד אורך 6 מטר
@@ -64,48 +72,242 @@
         </div>
     </header>
     <!-- About -->
-    <section class="py-24 bg-slate-800/50 px-4 sm:px-6">
+    <section class="py-24 bg-slate-800/50 px-4">
         <div class="container mx-auto text-center max-w-5xl">
-            <!-- ... כל התוכן של אודות נשאר זהה ... -->
+            <h2 class="text-4xl md:text-6xl font-black mb-8">אודותינו</h2>
+            <p class="text-2xl md:text-4xl font-bold text-blue-400 mb-12">
+                38 שנות מוניטין – 18 שנות חברות ב"אמנת השירות בישראל"
+            </p>
+            <p class="text-xl leading-relaxed text-slate-300 mb-10">
+                חברת אבי-אל מתכת הוקמה בשנת 1988, ומפעליה ממוקמים בתל אביב. החברה מתמחה בביצוע מגוון רחב של עבודות מתכת ופרויקטים בכל סדר גודל, לרבות עיבוד פח ואלומיניום. החברה משרתת לקוחות מוסדיים, עסקיים ופרטיים, ושמה דגש על איכות מוצריה, על דיוק מופתי ועל עמידה בלוחות הזמנים.<br><br>
+                לקוחות החברה זוכים לקבל עבודות מתכת ברמה גבוהה ביותר, שמתאימות לצרכים שלהם ומשרתות אותם לאורך זמן.
+            </p>
+            <p class="text-xl leading-relaxed text-slate-300 mb-10">
+                אנחנו מספקים פחי אלומיניום בכל הגדלים ובכל הצבעים כולל ניילון להגנה מפני שריטות – כולל חיתוך וכיפוף במחירים הכי זולים בארץ !
+            </p>
+            <a href="mailto:y.aviel3381@gmail.com?subject=בקשת%20הצעת%20מחיר" class="inline-block bg-blue-600 hover:bg-blue-500 px-12 py-6 rounded-full font-black text-2xl shadow-2xl transition-all transform hover:scale-105 mb-16 flex items-center justify-center gap-4 mx-auto">
+                שלחו מייל להזמנה והצעת מחיר <i data-lucide="mail" class="w-8 h-8"></i>
+            </a>
+            <h3 class="text-3xl md:text-4xl font-black mb-8">חברת י. אבי-אל מתכת מציעה מגוון מוצרים:</h3>
+            <ul class="text-xl md:text-2xl leading-relaxed text-slate-300 list-disc list-inside space-y-6 max-w-3xl mx-auto text-right">
+                <li>משקופים עיוורים – כולל משקופים לארגזי גלילה</li>
+                <li>חיתוך, ניקוב וכיפוף פחים – עד 5 מ"מ עובי ו-6 מטר אורך</li>
+                <li>גגוני אלומיניום</li>
+                <li>כיפוף מעיכה</li>
+            </ul>
         </div>
     </section>
     <!-- Services Tabs -->
-    <section class="py-24 bg-slate-900 px-4 sm:px-6">
+    <section class="py-24 bg-slate-900 px-4">
         <div class="container mx-auto">
             <h2 class="text-4xl md:text-5xl font-black text-center mb-16">השירותים שלנו</h2>
             <div class="max-w-6xl mx-auto">
-                <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4 mb-12 border-b border-slate-700">
+                <div class="tab-buttons-container">
                     <button class="tab-button active" onclick="openTab('tab1')">משקופים עיוורים</button>
                     <button class="tab-button" onclick="openTab('tab2')">כיפוף וחיתוך פחים</button>
                     <button class="tab-button" onclick="openTab('tab3')">פחי אלומיניום וצבעים</button>
                     <button class="tab-button" onclick="openTab('tab4')">מוצרים נוספים</button>
                 </div>
-                <!-- ... שאר הטאבים זהה ... -->
+                <div id="tab1" class="tab-content active">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-black mb-6">משקופים עיוורים</h3>
+                            <p class="text-xl leading-relaxed text-slate-300">
+                                ייצור והתקנה מקצועית של משקופים עיוורים, כולל לארגזי גלילה. מראה נקי ומינימליסטי ללא תפרים בולטים.
+                            </p>
+                        </div>
+                        <img src="images/1.jpg" alt="" class="rounded-3xl shadow-2xl" loading="lazy">
+                    </div>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-black mb-6">חיתוך וכיפוף עד אורך 6 מטר</h3>
+                            <p class="text-xl leading-relaxed text-slate-300">
+                                כיפוף מדויק עד עובי 5 מ״מ ואורך 6 מטר במכונות מתקדמות.<br>
+                                כולל כיפוף מעיכה מיוחד – ראו דוגמה מרשימה
+                            </p>
+                        </div>
+                        <img src="images/34.jpg" alt="" class="rounded-3xl shadow-2xl" loading="lazy">
+                    </div>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h3 class="text-3xl font-black mb-6">פחי אלומיניום וצבעים</h3>
+                            <p class="text-xl leading-relaxed text-slate-300">
+                                מלאי שוטף של צבעים RAL 9016, RAL 9005, RAL 9006, RAL 9007 כולל ציפוי ניילון PVC להגנה מפני שריטות.<br>
+                                ניתן לצבוע בכל צבע לפי בקשת הלקוח.
+                            </p>
+                        </div>
+                        <img src="images/35.jpg" alt="" class="rounded-3xl shadow-2xl" loading="lazy">
+                    </div>
+                </div>
+                <div id="tab4" class="tab-content">
+                    <div class="text-xl leading-relaxed text-slate-300 text-center">
+                        <ul class="list-disc list-inside space-y-4 max-w-2xl mx-auto">
+                            <li>גגוני אלומיניום</li>
+                            <li>פרופילי אלומיניום עד 6 מטר</li>
+                            <li>פלטות פח מגולוון</li>
+                            <li>כל עבודות המתכת בהתאמה אישית</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <!-- Colors Section -->
-    <section class="py-24 bg-slate-800/50 px-4 sm:px-6">
-        <!-- ... זהה ... -->
-    </section>
-    <!-- Gallery Carousel – גובה דינמי למובייל -->
-    <section class="py-24 bg-slate-900 px-4 sm:px-6">
-        <div class="container mx-auto">
-            <h2 class="text-4xl md:text-5xl font-black text-center mb-16">גלריית עבודות</h2>
-            <div class="swiper mySwiper h-[70vh] sm:h-[80vh] md:h-screen max-h-screen rounded-3xl overflow-hidden shadow-2xl">
-                <!-- ... כל הסליידים זהה ... -->
+    <section class="py-24 bg-slate-800/50 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-black mb-12">קטלוג צבעי RAL זמינים במלאי שוטף</h2>
+            <p class="text-xl text-slate-300 mb-12">כולל ציפוי ניילון PVC להגנה מפני שריטות • ניתן לצבוע בכל צבע לפי בקשה</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl shadow-inner" style="background:#f1f0ea;"></div>
+                    <p class="font-bold text-2xl">RAL 9016<br><span class="text-lg text-slate-400">לבן</span></p>
+                </div>
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl shadow-inner" style="background:#0a0a0a;"></div>
+                    <p class="font-bold text-2xl">RAL 9005<br><span class="text-lg text-slate-400">שחור</span></p>
+                </div>
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl shadow-inner" style="background:#a5a8a6;"></div>
+                    <p class="font-bold text-2xl">RAL 9006<br><span class="text-lg text-slate-400">כסף בהיר מטאלי</span></p>
+                </div>
+                <div class="p-8 bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl shadow-inner" style="background:#8f8f8c;"></div>
+                    <p class="font-bold text-2xl">RAL 9007<br><span class="text-lg text-slate-400">כסף כהה מטאלי</span></p>
+                </div>
+                <div class="p-8 bg-blue-900/30 rounded-3xl border border-blue-500/50 shadow-2xl hover:-translate-y-2 transition">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-2xl shadow-inner flex items-center justify-center bg-slate-700">
+                        <i data-lucide="palette" class="w-16 h-16 text-blue-400"></i>
+                    </div>
+                    <p class="font-bold text-2xl text-blue-400">צביעה אישית<br><span class="text-lg">כל גוון לפי דרישת הלקוח</span></p>
+                </div>
             </div>
         </div>
     </section>
-    <!-- ... שאר האתר זהה (פייסבוק, קשר, פוטר) ... -->
+    <!-- Gallery Carousel -->
+    <section class="py-24 bg-slate-900 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-16">גלריית עבודות</h2>
+            <div class="swiper mySwiper h-[70vh] sm:h-[80vh] md:h-screen max-h-screen rounded-3xl overflow-hidden shadow-2xl">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/1.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/2.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/3.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/4.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/5.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/6.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/7.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/8.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/9.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/10.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/11.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/12.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/13.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/14.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/15.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/16.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/17.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/18.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/19.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/20.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/21.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/22.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/23.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/24.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/25.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/26.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/27.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/28.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/29.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/30.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/31.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/32.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/33.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide relative">
+                        <img src="images/34.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                        <div class="swiper-caption">
+                            <div>דוגמה לכיפוף מעיכה מיוחד</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide"><img src="images/35.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/36.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/37.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/38.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/39.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/40.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/41.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/42.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/43.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/44.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/45.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/46.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/47.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/48.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                    <div class="swiper-slide"><img src="images/49.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next text-blue-500"></div>
+                <div class="swiper-button-prev text-blue-500"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Facebook Section -->
+    <section class="py-20 bg-slate-800/50 px-4">
+        <div class="container mx-auto text-center">
+            <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-700 to-blue-900 rounded-[3rem] p-12 shadow-2xl">
+                <i data-lucide="facebook" class="w-24 h-24 mx-auto mb-6"></i>
+                <h2 class="text-4xl md:text-5xl font-black mb-6">עקבו אחרינו בפייסבוק</h2>
+                <p class="text-xl md:text-2xl mb-10 text-blue-100">פרויקטים חדשים, עבודות מהשטח וטיפים מקצועיים</p>
+                <a href="https://www.facebook.com/profile.php?id=100083457842356&locale=he_IL" target="_blank" class="inline-flex items-center gap-4 bg-white text-blue-800 px-12 py-5 rounded-full font-black text-2xl hover:scale-105 transition-all shadow-xl">
+                    לעמוד הפייסבוק <i data-lucide="external-link" class="w-6 h-6"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section class="py-24 bg-slate-900 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-black text-center mb-16 text-blue-400">צרו קשר</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=רחוב+3381+8,תל+אביב,ישראל" target="_blank" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105">
+                    <i data-lucide="map-pin" class="w-12 h-12 text-blue-400 mx-auto mb-6"></i>
+                    <p class="text-xl font-black">רח' 3381 מס' 8,<br>תל אביב<br><span class="text-sm text-blue-400">(לחץ לניווט)</span></p>
+                </a>
+                <a href="tel:036811161" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105">
+                    <i data-lucide="phone" class="w-12 h-12 text-blue-400 mx-auto mb-6"></i>
+                    <p class="text-2xl font-black">03-6811161</p>
+                </a>
+                <div class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700">
+                    <i data-lucide="printer" class="w-12 h-12 text-blue-400 mx-auto mb-6"></i>
+                    <p class="text-2xl font-black">פקס: 03-6826178</p>
+                </div>
+                <a href="mailto:y.aviel3381@gmail.com" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105">
+                    <i data-lucide="mail" class="w-12 h-12 text-blue-400 mx-auto mb-6"></i>
+                    <p class="text-xl font-black break-all">y.aviel3381@gmail.com</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 text-center border-t border-slate-800 px-4">
+        <p class="text-3xl md:text-4xl font-black">י. אבי-אל עבודות מתכת בע"מ</p>
+        <p class="text-slate-500 mt-4 text-lg">© כל הזכויות שמורות • מאז 1988</p>
+    </footer>
     <script>
         lucide.createIcons();
         
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active', 'border-blue-500', 'text-blue-400'));
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active', 'border-blue-500', 'text-blue-400', 'bg-slate-900', 'shadow-2xl', 'scale-105');
+                btn.classList.add('bg-slate-800/50');
+            });
             document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active', 'border-blue-500', 'text-blue-400');
+            event.target.classList.add('active', 'border-blue-500', 'text-blue-400', 'bg-slate-900', 'shadow-2xl', 'scale-105');
+            event.target.classList.remove('bg-slate-800/50');
         }
         
         const swiper = new Swiper('.mySwiper', {
