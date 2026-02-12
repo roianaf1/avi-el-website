@@ -67,7 +67,8 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "רחוב 3381 מס' 8",
-        "addressLocality": "תל אביב",
+        "addressLocality": "תל אביב-יפו",
+        "postalCode": "68100",
         "addressCountry": "IL"
       },
       "geo": {
@@ -445,14 +446,14 @@
             <h2 id="video-heading" class="text-4xl md:text-5xl font-black text-center mb-12">צפו בעבודה שלנו</h2>
             <div class="max-w-6xl mx-auto">
                 <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-800 video-container relative">
-                    <video id="showcaseVideo" loop playsinline class="w-full" preload="metadata">
+                    <video id="showcaseVideo" loop playsinline muted class="w-full" preload="metadata">
                         <source src="videos/showcase.mp4" type="video/mp4">
                         <source src="videos/showcase.webm" type="video/webm">
                         הדפדפן שלך לא תומך בהצגת סרטונים
                     </video>
                     <!-- Mute/Unmute Button -->
                     <button id="muteToggle" class="mute-button" aria-label="השתק/בטל השתקה">
-                        <i data-lucide="volume-2" class="w-6 h-6 text-blue-400" id="volumeIcon"></i>
+                        <i data-lucide="volume-x" class="w-6 h-6 text-blue-400" id="volumeIcon"></i>
                     </button>
                 </div>
             </div>
@@ -510,9 +511,9 @@
         <div class="container mx-auto">
             <h2 id="contact-heading" class="text-4xl font-black text-center mb-16 text-blue-400">צרו קשר</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <a href="https://www.google.com/maps/search/?api=1&query=רחוב+3381+מס+8+תל+אביב" target="_blank" rel="noopener noreferrer" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105" aria-label="נווט לכתובת שלנו ברחוב 3381 מס 8 תל אביב (נפתח ב-Google Maps)">
+                <a href="https://www.google.com/maps/search/?api=1&query=3381+8+תל+אביב-יפו+68100" target="_blank" rel="noopener noreferrer" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105" aria-label="נווט לכתובת שלנו ברחוב 3381 מס 8 תל אביב-יפו (נפתח ב-Google Maps)">
                     <i data-lucide="map-pin" class="w-12 h-12 text-blue-400 mx-auto mb-6" aria-hidden="true"></i>
-                    <p class="text-xl font-black">רח׳ 3381 מס׳ 8,<br>תל אביב<br><span class="text-sm text-blue-400">(לחץ לניווט)</span></p>
+                    <p class="text-xl font-black">רח׳ 3381 מס׳ 8,<br>תל אביב-יפו, 68100<br><span class="text-sm text-blue-400">(לחץ לניווט)</span></p>
                 </a>
                 <a href="tel:036811161" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105" aria-label="התקשר לטלפון 03-6811161">
                     <i data-lucide="phone" class="w-12 h-12 text-blue-400 mx-auto mb-6" aria-hidden="true"></i>
@@ -534,7 +535,7 @@
     <footer class="bg-slate-950 py-12 text-center border-t border-slate-800 px-4" role="contentinfo">
         <p class="text-3xl md:text-4xl font-black">י. אבי-אל עבודות מתכת בע״מ</p>
         <p class="text-slate-500 mt-4 text-lg">© כל הזכויות שמורות • מאז 1988</p>
-        <p class="text-slate-600 mt-2 text-sm">טלפון: 03-6811161 | מייל: y.aviel3381@gmail.com | רח׳ 3381 מס׳ 8, תל אביב</p>
+        <p class="text-slate-600 mt-2 text-sm">טלפון: 03-6811161 | מייל: y.aviel3381@gmail.com | רח׳ 3381 מס׳ 8, תל אביב-יפו, 68100</p>
     </footer>
 
     <!-- Scripts -->
@@ -626,7 +627,7 @@
             });
         });
 
-        // VIDEO AUTOPLAY WITH SOUND
+        // VIDEO AUTOPLAY ON SCROLL
         const video = document.getElementById('showcaseVideo');
         const muteToggle = document.getElementById('muteToggle');
         const volumeIcon = document.getElementById('volumeIcon');
@@ -635,15 +636,9 @@
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Video is visible, play it WITH SOUND
-                    video.muted = false; // Enable sound!
+                    // Video is visible, play it
                     video.play().catch(err => {
-                        console.log('Autoplay with sound was prevented, trying muted:', err);
-                        // If autoplay with sound fails, try muted
-                        video.muted = true;
-                        video.play();
-                        volumeIcon.setAttribute('data-lucide', 'volume-x');
-                        lucide.createIcons();
+                        console.log('Autoplay was prevented:', err);
                     });
                 } else {
                     // Video is not visible, pause it
