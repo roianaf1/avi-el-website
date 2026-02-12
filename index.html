@@ -248,6 +248,34 @@
         .lazy-load.loaded {
             opacity: 1;
         }
+        /* Video styling */
+        .video-container {
+            position: relative;
+        }
+        .video-container video {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        /* Mute button styling */
+        .mute-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 10;
+            background: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(59, 130, 246, 0.5);
+        }
+        .mute-button:hover {
+            background: rgba(30, 41, 59, 1);
+            border-color: #3b82f6;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-white">
@@ -411,8 +439,32 @@
         </div>
     </section>
 
+    <!-- Video Section - WITH AUTOPLAY! -->
+    <section class="py-24 bg-slate-900 px-4" aria-labelledby="video-heading">
+        <div class="container mx-auto">
+            <h2 id="video-heading" class="text-4xl md:text-5xl font-black text-center mb-12">צפו בעבודה שלנו</h2>
+            <div class="max-w-6xl mx-auto">
+                <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-800 video-container relative">
+                    <video id="showcaseVideo" loop playsinline muted class="w-full" preload="metadata">
+                        <source src="videos/showcase.mp4" type="video/mp4">
+                        <source src="videos/showcase.webm" type="video/webm">
+                        הדפדפן שלך לא תומך בהצגת סרטונים
+                    </video>
+                    <!-- Mute/Unmute Button -->
+                    <button id="muteToggle" class="mute-button" aria-label="השתק/בטל השתקה">
+                        <i data-lucide="volume-x" class="w-6 h-6 text-blue-400" id="volumeIcon"></i>
+                    </button>
+                </div>
+                <p class="text-center text-slate-400 mt-6 text-lg">
+                    <i data-lucide="play-circle" class="inline w-5 h-5" aria-hidden="true"></i> 
+                    הסרטון מתנגן אוטומטית כשאתם מגיעים אליו
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Gallery Carousel -->
-    <section class="py-24 bg-slate-900 px-4" aria-labelledby="gallery-heading">
+    <section class="py-24 bg-slate-800/50 px-4" aria-labelledby="gallery-heading">
         <div class="container mx-auto">
             <h2 id="gallery-heading" class="text-4xl md:text-5xl font-black text-center mb-16">גלריית עבודות</h2>
             <div class="swiper mySwiper h-[70vh] sm:h-[80vh] md:h-screen max-h-screen rounded-3xl overflow-hidden shadow-2xl" role="region" aria-label="גלריית תמונות של עבודות שבוצעו">
@@ -443,7 +495,7 @@
     </section>
 
     <!-- Facebook Section -->
-    <section class="py-20 bg-slate-800/50 px-4" aria-labelledby="facebook-heading">
+    <section class="py-20 bg-slate-900 px-4" aria-labelledby="facebook-heading">
         <div class="container mx-auto text-center">
             <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-700 to-blue-900 rounded-[3rem] p-12 shadow-2xl">
                 <i data-lucide="facebook" class="w-24 h-24 mx-auto mb-6" aria-hidden="true"></i>
@@ -458,7 +510,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="py-24 bg-slate-900 px-4" aria-labelledby="contact-heading">
+    <section class="py-24 bg-slate-800/50 px-4" aria-labelledby="contact-heading">
         <div class="container mx-auto">
             <h2 id="contact-heading" class="text-4xl font-black text-center mb-16 text-blue-400">צרו קשר</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -495,7 +547,7 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
-        // Tab functionality with accessibility - FIXED
+        // Tab functionality with accessibility
         function openTab(tabId, event) {
             // Remove active from all tabs
             document.querySelectorAll('.tab-content').forEach(tab => {
@@ -577,6 +629,41 @@
                 console.warn('Failed to load image:', this.src);
             });
         });
+
+        // VIDEO AUTOPLAY ON SCROLL - THIS IS THE KEY PART!
+        const video = document.getElementById('showcaseVideo');
+        const muteToggle = document.getElementById('muteToggle');
+        const volumeIcon = document.getElementById('volumeIcon');
+
+        // Intersection Observer for autoplay when video enters viewport
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Video is visible, play it
+                    video.play().catch(err => {
+                        console.log('Autoplay was prevented:', err);
+                    });
+                } else {
+                    // Video is not visible, pause it
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.5 // Play when 50% of video is visible
+        });
+
+        if (video) {
+            videoObserver.observe(video);
+        }
+
+        // Mute/Unmute toggle
+        if (muteToggle && video) {
+            muteToggle.addEventListener('click', () => {
+                video.muted = !video.muted;
+                volumeIcon.setAttribute('data-lucide', video.muted ? 'volume-x' : 'volume-2');
+                lucide.createIcons();
+            });
+        }
     </script>
 </body>
 </html>
