@@ -439,26 +439,22 @@
         </div>
     </section>
 
-    <!-- Video Section - WITH AUTOPLAY! -->
+    <!-- Video Section -->
     <section class="py-24 bg-slate-900 px-4" aria-labelledby="video-heading">
         <div class="container mx-auto">
             <h2 id="video-heading" class="text-4xl md:text-5xl font-black text-center mb-12">צפו בעבודה שלנו</h2>
             <div class="max-w-6xl mx-auto">
                 <div class="rounded-3xl overflow-hidden shadow-2xl bg-slate-800 video-container relative">
-                    <video id="showcaseVideo" loop playsinline muted class="w-full" preload="metadata">
+                    <video id="showcaseVideo" loop playsinline class="w-full" preload="metadata">
                         <source src="videos/showcase.mp4" type="video/mp4">
                         <source src="videos/showcase.webm" type="video/webm">
                         הדפדפן שלך לא תומך בהצגת סרטונים
                     </video>
                     <!-- Mute/Unmute Button -->
                     <button id="muteToggle" class="mute-button" aria-label="השתק/בטל השתקה">
-                        <i data-lucide="volume-x" class="w-6 h-6 text-blue-400" id="volumeIcon"></i>
+                        <i data-lucide="volume-2" class="w-6 h-6 text-blue-400" id="volumeIcon"></i>
                     </button>
                 </div>
-                <p class="text-center text-slate-400 mt-6 text-lg">
-                    <i data-lucide="play-circle" class="inline w-5 h-5" aria-hidden="true"></i> 
-                    הסרטון מתנגן אוטומטית כשאתם מגיעים אליו
-                </p>
             </div>
         </div>
     </section>
@@ -514,7 +510,7 @@
         <div class="container mx-auto">
             <h2 id="contact-heading" class="text-4xl font-black text-center mb-16 text-blue-400">צרו קשר</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <a href="https://www.google.com/maps/dir/?api=1&destination=32.0853,34.7818" target="_blank" rel="noopener noreferrer" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105" aria-label="נווט לכתובת שלנו ברחוב 3381 מס 8 תל אביב (נפתח ב-Google Maps)">
+                <a href="https://www.google.com/maps/search/?api=1&query=רחוב+3381+מס+8+תל+אביב" target="_blank" rel="noopener noreferrer" class="bg-slate-800/70 backdrop-blur p-10 rounded-3xl text-center border border-slate-700 hover:border-blue-500 transition transform hover:scale-105" aria-label="נווט לכתובת שלנו ברחוב 3381 מס 8 תל אביב (נפתח ב-Google Maps)">
                     <i data-lucide="map-pin" class="w-12 h-12 text-blue-400 mx-auto mb-6" aria-hidden="true"></i>
                     <p class="text-xl font-black">רח׳ 3381 מס׳ 8,<br>תל אביב<br><span class="text-sm text-blue-400">(לחץ לניווט)</span></p>
                 </a>
@@ -630,7 +626,7 @@
             });
         });
 
-        // VIDEO AUTOPLAY ON SCROLL - THIS IS THE KEY PART!
+        // VIDEO AUTOPLAY WITH SOUND
         const video = document.getElementById('showcaseVideo');
         const muteToggle = document.getElementById('muteToggle');
         const volumeIcon = document.getElementById('volumeIcon');
@@ -639,9 +635,15 @@
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Video is visible, play it
+                    // Video is visible, play it WITH SOUND
+                    video.muted = false; // Enable sound!
                     video.play().catch(err => {
-                        console.log('Autoplay was prevented:', err);
+                        console.log('Autoplay with sound was prevented, trying muted:', err);
+                        // If autoplay with sound fails, try muted
+                        video.muted = true;
+                        video.play();
+                        volumeIcon.setAttribute('data-lucide', 'volume-x');
+                        lucide.createIcons();
                     });
                 } else {
                     // Video is not visible, pause it
