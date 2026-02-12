@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>י. אבי-אל עבודות מתכת | משקופים עיוורים וחיתוך פחים עד 6 מטר | תל אביב</title>
     <meta name="title" content="י. אבי-אל עבודות מתכת | משקופים עיוורים וחיתוך פחים עד 6 מטר | תל אביב">
@@ -12,7 +12,7 @@
     <meta name="author" content="י. אבי-אל עבודות מתכת בע״מ">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://avi-el.com/">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://avi-el.com/">
@@ -21,37 +21,37 @@
     <meta property="og:description" content="38 שנות מוניטין בייצור משקופים עיוורים, חיתוך וכיפוף פחים עד 6 מטר. מחירים הוגנים ואיכות מעולה | תל אביב">
     <meta property="og:image" content="https://avi-el.com/images/og-image.jpg">
     <meta property="og:locale" content="he_IL">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://avi-el.com/">
     <meta property="twitter:title" content="י. אבי-אל עבודות מתכת | משקופים עיוורים וחיתוך פחים">
     <meta property="twitter:description" content="38 שנות מוניטין בייצור משקופים עיוורים, חיתוך וכיפוף פחים עד 6 מטר">
     <meta property="twitter:image" content="https://avi-el.com/images/og-image.jpg">
-    
+
     <!-- Geo Tags -->
     <meta name="geo.region" content="IL-TA">
     <meta name="geo.placename" content="תל אביב">
     <meta name="geo.position" content="32.0853;34.7818">
     <meta name="ICBM" content="32.0853, 34.7818">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
+
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    
+
     <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
+
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -129,7 +129,7 @@
       }
     }
     </script>
-    
+
     <!-- Google Analytics Placeholder - Replace with your tracking ID -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
     <script>
@@ -138,7 +138,7 @@
       // gtag('js', new Date());
       // gtag('config', 'GA_MEASUREMENT_ID');
     </script>
-    
+
     <style>
         body { 
             font-family: 'Assistant', sans-serif; 
@@ -325,10 +325,10 @@
             <h2 id="services-heading" class="text-4xl md:text-5xl font-black text-center mb-16">השירותים שלנו</h2>
             <div class="max-w-6xl mx-auto">
                 <div class="tab-buttons-container" role="tablist" aria-label="השירותים שלנו">
-                    <button class="tab-button active" onclick="openTab('tab1')" role="tab" aria-selected="true" aria-controls="tab1" id="tab1-button">משקופים עיוורים</button>
-                    <button class="tab-button" onclick="openTab('tab2')" role="tab" aria-selected="false" aria-controls="tab2" id="tab2-button">כיפוף וחיתוך פחים</button>
-                    <button class="tab-button" onclick="openTab('tab3')" role="tab" aria-selected="false" aria-controls="tab3" id="tab3-button">פחי אלומיניום וצבעים</button>
-                    <button class="tab-button" onclick="openTab('tab4')" role="tab" aria-selected="false" aria-controls="tab4" id="tab4-button">מוצרים נוספים</button>
+                    <button class="tab-button active" onclick="openTab('tab1', event)" role="tab" aria-selected="true" aria-controls="tab1" id="tab1-button">משקופים עיוורים</button>
+                    <button class="tab-button" onclick="openTab('tab2', event)" role="tab" aria-selected="false" aria-controls="tab2" id="tab2-button">כיפוף וחיתוך פחים</button>
+                    <button class="tab-button" onclick="openTab('tab3', event)" role="tab" aria-selected="false" aria-controls="tab3" id="tab3-button">פחי אלומיניום וצבעים</button>
+                    <button class="tab-button" onclick="openTab('tab4', event)" role="tab" aria-selected="false" aria-controls="tab4" id="tab4-button">מוצרים נוספים</button>
                 </div>
                 <div id="tab1" class="tab-content active" role="tabpanel" aria-labelledby="tab1-button">
                     <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -494,30 +494,30 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
-       
-        // Tab functionality with accessibility
-        function openTab(tabId) {
+
+        // Tab functionality with accessibility - FIXED
+        function openTab(tabId, event) {
             // Remove active from all tabs
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
-            
+
             // Remove active from all buttons
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.remove('active', 'border-blue-500', 'text-blue-400', 'bg-slate-900', 'shadow-2xl', 'scale-105');
                 btn.classList.add('bg-slate-800/50');
                 btn.setAttribute('aria-selected', 'false');
             });
-            
+
             // Add active to selected tab
             document.getElementById(tabId).classList.add('active');
-            
+
             // Add active to clicked button
             event.target.classList.add('active', 'border-blue-500', 'text-blue-400', 'bg-slate-900', 'shadow-2xl', 'scale-105');
             event.target.classList.remove('bg-slate-800/50');
             event.target.setAttribute('aria-selected', 'true');
         }
-       
+
         // Initialize Swiper
         const swiper = new Swiper('.mySwiper', {
             loop: true,
@@ -555,7 +555,7 @@
                 lastSlideMessage: 'זו התמונה האחרונה'
             }
         });
-        
+
         // Lazy load images when they enter viewport
         const lazyImages = document.querySelectorAll('img.lazy-load');
         const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -567,9 +567,9 @@
                 }
             });
         });
-        
+
         lazyImages.forEach(img => imageObserver.observe(img));
-        
+
         // Add error handling for images
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('error', function() {
